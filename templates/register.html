@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block title %} Register {% endblock %} {% block
+content %}
+<h1 class="Display-1 text-center">Sign Up</h1>
+<p class="lead text-center">Please Sign Up Below!</p>
+<div class="container">
+  <form method="POST">
+    {{form.hidden_tag()}} {% for field in form if
+    field.widget.input_type!='hidden' %}
+    <p>
+      {{field.label}} {{field(class_='form-control')}} {% for error in
+      field.errors %} <span class="form-text text-danger">{{ error }}</span> {%
+      endfor %}
+    </p>
+    {% endfor %}
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-success">Register</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
